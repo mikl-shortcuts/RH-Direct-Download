@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nuvole AI Redirect</title>
+    <script>
+        fetch('https://routinehub.co/api/v1/shortcuts/18431/versions/latest')
+            .then(response => response.json())
+            .then(data => {
+                const versionId = data.id;
+                window.location.href = `https://routinehub.co/download/${versionId}`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                window.location.href = '/';
+            });
+    </script>
+</head>
+<body>
+    <h1>Redirecting to Nuvole AI download...</h1>
+</body>
+</html>
