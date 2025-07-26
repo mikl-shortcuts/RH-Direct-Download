@@ -1,1 +1,0 @@
-# rh-smart-direct-download-link
