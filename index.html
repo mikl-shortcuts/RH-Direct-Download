@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Nuvole AI Redirect</title>
+    <title>Smart Download Redirect</title>
     <script>
-        fetch('https://routinehub.co/api/v1/shortcuts/18431/versions/latest')
+        const urlParams = new URLSearchParams(window.location.search);
+        const shortcutId = urlParams.get('id');
+        
+        fetch(`https://routinehub.co/api/v1/shortcuts/${shortcutId}/versions/latest`)
             .then(response => response.json())
             .then(data => {
                 const versionId = data.id;
@@ -16,6 +19,6 @@
     </script>
 </head>
 <body>
-    <h1>Redirecting to Nuvole AI download...</h1>
+    <h1>Redirecting to Shortcut download...</h1>
 </body>
 </html>
