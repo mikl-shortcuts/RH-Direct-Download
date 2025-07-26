@@ -3,8 +3,7 @@
 <head>
     <title>RoutineHub Direct Download</title>
     <script>
-        const pathSegments = window.location.pathname.split('/').filter(Boolean);
-        const shortcutId = pathSegments[1];
+        const shortcutId = window.location.hash.substring(1);
         fetch(`https://routinehub.co/api/v1/shortcuts/${shortcutId}/versions/latest`)
             .then(response => {
                 if (!response.ok) throw new Error('Shortcut not found');
