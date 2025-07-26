@@ -11,15 +11,13 @@
             })
             .then(data => {
                 window.location.href = `https://routinehub.co/download/${data.id}`;
+                document.getElementById('fallbackLink').href = `https://routinehub.co/download/${data.id}`;
             })
     </script>
 </head>
 <body>
     <center>
     <h1 style="padding-top:20px;">Redirecting to download...</h1>
-    <p>If the download doesn't start, <a id="fallbackLink" href="#">click here</a>.</p>
-    <script>
-        document.getElementById('fallbackLink').href = `https://routinehub.co/download/${data.id}`;
-    </script>
+    <p>If the download doesn't start, <a id="fallbackLink" href="https://routinehub.co/shortcut/${shortcutId}/">click here</a>.</p>
 </body>
 </html>
