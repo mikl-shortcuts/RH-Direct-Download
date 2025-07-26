@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Smart Download Redirect</title>
+    <title>RoutineHub Direct Download</title>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const shortcutId = urlParams.get('id');
-        
+        const pathSegments = window.location.pathname.split('/').filter(Boolean);
+        const shortcutId = pathSegments[1];
         fetch(`https://routinehub.co/api/v1/shortcuts/${shortcutId}/versions/latest`)
-            .then(response => response.json())
-            .then(data => {
-                const versionId = data.id;
-                window.location.href = `https://routinehub.co/download/${versionId}`;
+            .then(response => {
+                if (!response.ok) throw new Error('Shortcut not found');
+                return response.json();
             })
-            .catch(error => {
-                console.error('Error:', error);
-                window.location.href = '/';
-            });
+            .then(data => {
+                window.location.href = `https://routinehub.co/download/${data.id}`;
+            })
     </script>
 </head>
 <body>
-    <h1>Redirecting to Shortcut download...</h1>
+    <h1>Redirecting to iCloud...</h1>
+    <p>If the download doesn't start, <a id="fallbackLink" href="#">click here</a>.</p>
+    <script>
+        document.getElementById('fallbackLink').href = `https://routinehub.co/download/${shortcutId}`;
+    </script>
 </body>
 </html>
