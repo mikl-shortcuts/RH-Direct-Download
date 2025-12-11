@@ -47,7 +47,7 @@
 
         fetch(`https://routinehub.co/api/v1/shortcuts/${shortcutId}/versions/latest`)
             .then(response => {
-                if (!response.ok) throw new Error('Shortcut not found');
+                if (!response.ok) throw new Error('maybe shortcut doesn’t exist');
                 return response.json();
             })
             .then(data => {
@@ -57,7 +57,7 @@
                 window.close();
             })
             .catch(err => {
-                document.getElementById('fallbackLink').textContent = "Shortcut not found";
+                document.getElementById('fallbackLink').textContent = "maybe shortcut doesn’t exist";
                 document.getElementById('fallbackLink').href = "#";
             });
     </script>
