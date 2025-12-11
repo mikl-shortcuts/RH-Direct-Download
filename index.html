@@ -27,25 +27,25 @@
 
         .spin-o {
             display: inline-block;
-            width: 0.55em;
-            height: 0.55em;
-            border: 0.1em solid currentColor;
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            vertical-align: middle;
-            margin: 0 0.02em;
             position: relative;
-            top: -0.05em;
+            animation: shadow-spin 1s linear infinite;
         }
 
-        .spin-o:nth-of-type(1) { animation-duration: 0.8s; }
-        .spin-o:nth-of-type(2) { animation-duration: 1s; animation-direction: reverse; }
-        .spin-o:nth-of-type(3) { animation-duration: 1.2s; }
+        .spin-o:nth-of-type(2) {
+            animation-duration: 0.8s;
+            animation-direction: reverse;
+        }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .spin-o:nth-of-type(3) {
+            animation-duration: 1.2s;
+        }
+
+        @keyframes shadow-spin {
+            0%   { text-shadow: 2px 0 0 #61114A; }
+            25%  { text-shadow: 0 2px 0 #61114A; }
+            50%  { text-shadow: -2px 0 0 #61114A; }
+            75%  { text-shadow: 0 -2px 0 #61114A; }
+            100% { text-shadow: 2px 0 0 #61114A; }
         }
 
         #footerWrap {
@@ -86,7 +86,7 @@
     </script>
 </head>
 <body>
-    <h1>Redirecting t<span class="spin-o"></span> d<span class="spin-o"></span>wnl<span class="spin-o"></span>ad</h1>
+    <h1>Redirecting t<span class="spin-o">o</span> d<span class="spin-o">o</span>wnl<span class="spin-o">o</span>ad</h1>
     <p style="margin-top: -10px;">
         If the download doesn't start,
         <a id="fallbackLink" href="#">click here</a>
