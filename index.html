@@ -25,6 +25,29 @@
             text-decoration: underline;
         }
 
+        .spin-o {
+            display: inline-block;
+            width: 0.55em;
+            height: 0.55em;
+            border: 0.1em solid currentColor;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            vertical-align: middle;
+            margin: 0 0.02em;
+            position: relative;
+            top: -0.05em;
+        }
+
+        .spin-o:nth-of-type(1) { animation-duration: 0.8s; }
+        .spin-o:nth-of-type(2) { animation-duration: 1s; animation-direction: reverse; }
+        .spin-o:nth-of-type(3) { animation-duration: 1.2s; }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         #footerWrap {
             position: fixed;
             bottom: 10px;
@@ -63,10 +86,10 @@
     </script>
 </head>
 <body>
-    <h1>Redirecting to download...</h1>
+    <h1>Redirecting t<span class="spin-o"></span> d<span class="spin-o"></span>wnl<span class="spin-o"></span>ad</h1>
     <p style="margin-top: -10px;">
         If the download doesn't start,
-        <a id="fallbackLink" href="#">click here</a>.
+        <a id="fallbackLink" href="#">click here</a>
     </p>
     <a id="footerWrap" href="https://github.com/mikl-shortcuts" target="_blank">
         <svg viewBox="0 0 16 16">
