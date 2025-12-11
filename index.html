@@ -26,17 +26,33 @@
         }
 
         .spin-o {
+            position: relative;
             display: inline-block;
-            background: conic-gradient(#000 0deg, transparent 270deg, #000 360deg);
+            color: transparent;
+        }
+
+        .spin-o::before {
+            content: 'o';
+            position: absolute;
+            inset: 0;
+            background: conic-gradient(from 0deg, #000 0deg, transparent 90deg, #000 360deg);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: spin 1s linear infinite;
+            animation: spin-gradient 1s linear infinite;
         }
 
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        @keyframes spin-gradient {
+            from { 
+                background: conic-gradient(from 0deg, #000 0deg, transparent 90deg, #000 360deg);
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+            to { 
+                background: conic-gradient(from 360deg, #000 0deg, transparent 90deg, #000 360deg);
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
         }
 
         #footerWrap {
