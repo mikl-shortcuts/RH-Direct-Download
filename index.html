@@ -25,36 +25,6 @@
             text-decoration: underline;
         }
 
-        .spin-o {
-            position: relative;
-            display: inline-block;
-            color: transparent;
-        }
-
-        .spin-o::before {
-            content: 'o';
-            position: absolute;
-            inset: 0;
-            background: conic-gradient(from 0deg, #000 0deg, transparent 90deg, #000 360deg);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: spin-gradient 1s linear infinite;
-        }
-
-        @keyframes spin-gradient {
-            from { 
-                background: conic-gradient(from 0deg, #000 0deg, transparent 90deg, #000 360deg);
-                -webkit-background-clip: text;
-                background-clip: text;
-            }
-            to { 
-                background: conic-gradient(from 360deg, #000 0deg, transparent 90deg, #000 360deg);
-                -webkit-background-clip: text;
-                background-clip: text;
-            }
-        }
-
         #footerWrap {
             position: fixed;
             bottom: 10px;
@@ -93,7 +63,7 @@
     </script>
 </head>
 <body>
-    <h1>Redirecting t<span class="spin-o">o</span> d<span class="spin-o">o</span>wnl<span class="spin-o">o</span>ad</h1>
+    <h1>Redirecting to download</h1>
     <p style="margin-top: -10px;">
         If the download doesn't start,
         <a id="fallbackLink" href="#">click here</a>
