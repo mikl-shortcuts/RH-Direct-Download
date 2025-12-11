@@ -25,29 +25,6 @@
             text-decoration: underline;
         }
 
-        .spin-o {
-            display: inline-block;
-            position: relative;
-            animation: shadow-spin 1s linear infinite;
-        }
-
-        .spin-o:nth-of-type(2) {
-            animation-duration: 0.8s;
-            animation-direction: reverse;
-        }
-
-        .spin-o:nth-of-type(3) {
-            animation-duration: 1.2s;
-        }
-
-        @keyframes shadow-spin {
-            0%   { text-shadow: 2px 0 0 #61114A; }
-            25%  { text-shadow: 0 2px 0 #61114A; }
-            50%  { text-shadow: -2px 0 0 #61114A; }
-            75%  { text-shadow: 0 -2px 0 #61114A; }
-            100% { text-shadow: 2px 0 0 #61114A; }
-        }
-
         #footerWrap {
             position: fixed;
             bottom: 10px;
@@ -86,7 +63,7 @@
     </script>
 </head>
 <body>
-    <h1>Redirecting t<span class="spin-o">o</span> d<span class="spin-o">o</span>wnl<span class="spin-o">o</span>ad</h1>
+    <h1>Redirecting to download</h1>
     <p style="margin-top: -10px;">
         If the download doesn't start,
         <a id="fallbackLink" href="#">click here</a>
