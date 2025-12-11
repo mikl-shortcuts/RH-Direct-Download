@@ -4,16 +4,21 @@
     <title>RoutineHub Direct Download</title>
     <script>
         const shortcutId = window.location.hash.substring(1);
-        fetch(`https://routinehub.co/api/v1/shortcuts/ ${shortcutId}/versions/latest`)
+
+        fetch(`https://routinehub.co/api/v1/shortcuts/${shortcutId}/versions/latest`)
             .then(response => {
                 if (!response.ok) throw new Error('Shortcut not found');
                 return response.json();
             })
             .then(data => {
-                window.location.href = `https://routinehub.co/download/ ${data.id}`;
-                document.getElementById('fallbackLink').href = `https://routinehub.co/download/ ${data.id}`;
+                const url = `https://routinehub.co/download/${data.id}`;
+                window.location.href = url;
+                document.getElementById('fallbackLink').href = url;
                 window.close();
             })
+            .catch(err => {
+                document.getElementById('fallbackLink').textContent = "Shortcut not found";
+            });
     </script>
 </head>
 <style>
@@ -24,7 +29,9 @@
 <body>
     <center>
     <h1 style="padding-top:50px;">Redirecting to download...</h1>
-    <p>If the download doesn't start, <a id="fallbackLink" href="https://routinehub.co/shortcut/ ${shortcutId}/">click here</a>.</p>
+    <p>If the download doesn't start, 
+       <a id="fallbackLink" href="#">click here</a>.
+    </p>
+    </center>
 </body>
 </html>
-
